@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Drill2</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<style>
+    .content-box{
+        width:400px;
+        margin: auto;
+        padding: 20px;
+        box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
+
+    }
+</style>
+
+
+
+
+
+<body>
+<!--form-->
+<div class= "container-fluid">
+<div class=content-box>
+    <h1>Heat Index Checker</h1>
+   
+    <details class="ontoggle">
+        <summary>Note:</summary>
+        <p>Input the temperature (C°) and the humidity (%) to calculate for the heat index and its corresponding status.</p>
+    </details>
+
+    <form>
+        <label for="temperature">Temperature (C°):</label>
+        <br>
+        <input type="number" id="temp" class="form-control" placeholder="temperature" required>
+
+    <br>
+
+        <label for="humidity">Humidity (%):</label>
+        <br>
+        <input type="number" id="humid" class="form-control" placeholder="temperature" required>
+
+    <br>
+        <button class="btn btn-danger" onclick = "CheckHIndex()">
+            Calculate
+        </button>
+    </form>
+
+
+
+
+</div>
+</div>
+
+
+
+
+<!--javascript-->
+<script>
+
+function CheckHIndex(){
+
+    var temp = document.getElementById("temp").value; //get value from form
+    var humid =  document.getElementById("humid").value;
+ 
+    var HeatIndex = temp + (0.33 * humid) - 4;
+    var status = "";
+
+    switch (true){
+        case (HeadIndex <= 27):
+        status = "Comfortable / Cool";
+        break;
+
+        case (HeadIndex <= 32):
+        status = "Warm";
+        break;
+
+        case (HeadIndex <= 37):
+        status = "Hot";
+        break;
+
+        case (HeadIndex <= 41):
+        status = "Comfortable / Cool";
+        break;
+
+        case (HeadIndex >= 42):
+        status = "Extreme Heat / Danger";
+        break;
+
+        default:
+            status = "Status cannot be determined."
+    }
+
+    alert("Heat Index:" + HeatIndex.toFixed(1) + "\n" + "Status" + status);
+}
+
+
+</script>
+
+</body>
+</html>
