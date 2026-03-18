@@ -10,17 +10,19 @@
 </head>
 
 <style>
+    body{
+        background-color: rgb(255, 88, 88);
+    }
+
     .content-box{
+        background-color: white;
         width:400px;
         margin: auto;
         padding: 20px;
         box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
-
+        margin-top: 100px;
     }
 </style>
-
-
-
 
 
 <body>
@@ -51,13 +53,8 @@
         </button>
     </form>
 
-
-
-
 </div>
 </div>
-
-
 
 
 <!--javascript-->
@@ -65,35 +62,35 @@
 
 function CheckHIndex(){
 
-    var temp = document.getElementById("temp").value; //get value from form
-    var humid =  document.getElementById("humid").value;
+    var temp = parseFloat(document.getElementById("temp").value); //get value from form
+    var humid =  parseFloat(document.getElementById("humid").value);
  
     var HeatIndex = temp + (0.33 * humid) - 4;
     var status = "";
 
     switch (true){
-        case (HeadIndex <= 27):
+        case (HeatIndex <= 27):
         status = "Comfortable / Cool";
         break;
 
-        case (HeadIndex <= 32):
+        case (HeatIndex <= 32):
         status = "Warm";
         break;
 
-        case (HeadIndex <= 37):
+        case (HeatIndex <= 37):
         status = "Hot";
         break;
 
-        case (HeadIndex <= 41):
-        status = "Comfortable / Cool";
+        case (HeatIndex <= 41):
+        status = "Very Hot / ";
         break;
 
-        case (HeadIndex >= 42):
+        case (HeatIndex >= 42):
         status = "Extreme Heat / Danger";
         break;
 
         default:
-            status = "Status cannot be determined."
+            status = "Status cannot be determined.";
     }
 
     alert("Heat Index:" + HeatIndex.toFixed(1) + "\n" + "Status" + status);
